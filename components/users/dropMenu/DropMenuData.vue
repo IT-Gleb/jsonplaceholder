@@ -155,7 +155,7 @@ watch(
     <template #item-label="{ item, active }">
       <span
         v-if="active"
-        class="text-xs lg:text-sm flex items-center justify-center gap-1 text-neutral-600"
+        class="text-xs lg:text-sm flex items-center justify-center gap-1 text-neutral-600 dark:text-white"
       >
         <UIcon
           :name="

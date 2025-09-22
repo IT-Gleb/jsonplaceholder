@@ -27,7 +27,7 @@ const load = ref(null);
       <KeepAlive>
         <Suspense>
           <AsyncUsersList
-            class="h-full min-h-[50vh] w-full md:min-h-[35vh] md:w-[20vw]"
+            class="h-full min-h-[48vh] w-full md:min-h-[35vh] md:w-[20vw]"
           />
           <template #fallback>
             <UProgress
