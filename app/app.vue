@@ -3,7 +3,7 @@
 import { ref } from "vue";
 import { useNuxtApp } from "#app";
 
-const toaster = { position: "bottom-left" as const, duration: 4000 };
+const toaster = { position: "bottom-left" as const, duration: 3000 };
 const pvalue = ref(null);
 const progressShow = ref<boolean>(true);
 const nuxtApp = useNuxtApp();
