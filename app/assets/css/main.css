@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source "../../../components";
+
+@layer base {
+  html {
+    @apply h-[100%];
+  }
+  body {
+    @apply h-[100%];
+  }
+}
+
+@layer components {
+  body {
+    @apply w-full min-h-screen overflow-x-hidden text-[1rem] bg-white text-slate-900 dark:bg-slate-800 dark:text-slate-200 flex flex-col;
+    & header {
+      @apply bg-stone-300 text-white dark:bg-stone-950 dark:text-slate-300 p-2;
+    }
+    & main {
+      @apply min-h-[82dvh] p-1 flex-1;
+    }
+    & footer {
+      @apply min-h-[10dvh] p-4 bg-stone-400 text-slate-800 dark:bg-stone-950 dark:text-slate-300;
+    }
+  }
+
+  /* Works on Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.slate.950") theme("colors.slate.300");
+  }
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: theme("colors.slate.300");
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: theme("colors.slate.200");
+    border-radius: 20px;
+    border: 2px solid theme("colors.slate.950");
+  }
+
+  button {
+    @apply cursor-pointer active:scale-90;
+  }
+}
