@@ -67,7 +67,7 @@ const columns: TableColumn<TColumnTodo>[] = [
     enableHiding: false,
     meta: {
       class: {
-        th: "bg-neutral-50 dark:bg-slate-900 text-center",
+        th: "bg-neutral-50 dark:bg-neutral-800 text-center",
         td: "text-center cursor-pointer dark:border-t dark:border-t-slate-600",
       },
     },
@@ -85,7 +85,7 @@ const columns: TableColumn<TColumnTodo>[] = [
     },
     meta: {
       class: {
-        th: "bg-neutral-50 dark:bg-slate-900",
+        th: "bg-neutral-50 dark:bg-neutral-800",
         td: "text-sm lg:text-lg dark:border-t dark:border-t-slate-600 ",
       },
     },
@@ -119,7 +119,7 @@ const columns: TableColumn<TColumnTodo>[] = [
     },
     meta: {
       class: {
-        th: "bg-neutral-50 dark:bg-slate-900",
+        th: "bg-neutral-50 dark:bg-neutral-800",
         td: "text-center dark:border-t dark:border-t-slate-600",
       },
     },
