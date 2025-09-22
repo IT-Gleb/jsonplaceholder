@@ -44,7 +44,7 @@ const load = ref(null);
         color="neutral"
         type="solid"
         icon="i-simple-icons-nuxtdotjs"
-        :class="isMobile ? 'h-[2vh] w-full min-w-sm' : 'h-[92vh]'"
+        :class="isMobile ? 'h-[2vh] w-full min-w-xs' : 'min-h-[92vh]'"
         :ui="{ border: 'border-1 dark:border-slate-600' }"
       />
 
