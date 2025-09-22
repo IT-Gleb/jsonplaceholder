@@ -8,9 +8,11 @@ import {
   useTemplateRef,
   h,
   resolveComponent,
+  nextTick,
 } from "vue";
 import type { IUserData, TUserData } from "../../types/user";
 import type { TableColumn, TableRow } from "@nuxt/ui";
+import type { Column } from "@tanstack/vue-table";
 //import { useToast } from "@nuxt/ui/runtime/composables/useToast.js";
 
 //const toast = useToast();
@@ -26,6 +28,7 @@ const RowSelectedLength = ref<number>(0);
 
 const UCheckB = resolveComponent("UCheckbox");
 const UBadge = resolveComponent("UBadge");
+const UButton = resolveComponent("UButton");
 
 type TColumnTodo = {
   title: string;
@@ -92,8 +95,13 @@ const columns: TableColumn<TColumnTodo>[] = [
   },
   {
     accessorKey: "completed",
-    header: ({ table }) =>
-      h("div", { class: "p-1 text-left uppercase text-sm" }, "Статус"),
+    header: ({ table, column }) => {
+      return h(
+        "div",
+        { class: "text-sm font-bold uppercase" },
+        getHeader(column, "Статус", "right")
+      );
+    },
     cell: ({ row }) => {
       const color = {
         true: "success" as const,
@@ -125,6 +133,33 @@ const columns: TableColumn<TColumnTodo>[] = [
     },
   },
 ];
+
+//Column pinning
+const columnPinning = ref({
+  left: [],
+  right: ["status", "completed"],
+});
+
+function getHeader(
+  column: Column<TColumnTodo>,
+  label: string,
+  position: "left" | "right"
+) {
+  const isPinned = column.getIsPinned();
+
+  return h(UButton, {
+    color: "neutral",
+    variant: "ghost",
+    label,
+    icon: isPinned ? "i-lucide-pin-off" : "i-lucide-pin",
+    class: "-mx-2.5 uppercase font-bold",
+    onClick() {
+      column.pin(isPinned === position ? false : position);
+    },
+  });
+}
+
+//-------Column pinning
 
 const table = useTemplateRef("table");
 
@@ -201,6 +236,7 @@ watch(
       :columns="columns"
       v-model:row-selection="rowSelection"
       @select="onSelect"
+      v-model:column-pinning="columnPinning"
       sticky
       class="text-xs lg:text-sm h-[60vh] mt-3 flex-1"
     >

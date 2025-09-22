@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TabsItem } from "@nuxt/ui";
 import type { IUserData } from "../../types/user";
-import { defineAsyncComponent, ref, watch } from "vue";
+import { defineAsyncComponent, ref, watch, onMounted } from "vue";
 import { useState } from "nuxt/app";
 import { useMediaQuery } from "@vueuse/core";
 import type { BreadcrumbItem } from "@nuxt/ui";
@@ -118,6 +118,7 @@ watch(
   activeTab,
   () => {
     let index: number = activeTab.value as number;
+    //@ts-ignore
     breadCrumbs.value = tabs.value
       .map((item, ind) => {
         if (ind <= index) {
