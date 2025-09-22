@@ -26,9 +26,7 @@ const load = ref(null);
     <div class="flex flex-col md:flex-row gap-2 md:items-start">
       <KeepAlive>
         <Suspense>
-          <AsyncUsersList
-            class="h-[5vh] w-full md:min-h-[35vh] md:w-[20vw]"
-          />
+          <AsyncUsersList class="h-[50vh] w-full md:min-h-[35vh] md:w-[20vw]" />
           <template #fallback>
             <UProgress
               v-model="load"
