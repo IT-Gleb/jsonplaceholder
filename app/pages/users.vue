@@ -22,7 +22,7 @@ const load = ref(null);
 </script>
 
 <template>
-  <div class="p-4 w-full">
+  <div class="p-2 w-full">
     <div class="flex flex-col md:flex-row gap-2 md:items-start">
       <KeepAlive>
         <Suspense>
@@ -44,7 +44,7 @@ const load = ref(null);
         color="neutral"
         type="solid"
         icon="i-simple-icons-nuxtdotjs"
-        :class="isMobile ? 'h-[2vh] w-full min-w-xs' : 'min-h-[92vh]'"
+        :class="isMobile ? 'h-[2vh] w-full min-w-[340px]' : 'min-h-[92vh]'"
         :ui="{ border: 'border-1 dark:border-slate-600' }"
       />
 

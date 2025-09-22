@@ -162,8 +162,11 @@ watch(
         <template #item-label="{ item }">
           <span
             v-if="item.label === user.label"
-            class="inline-block text-black dark:text-slate-300 text-sm font-semibold w-[260px] truncate text-left underline underline-offset-2"
+            class="inline-block text-black dark:text-slate-200 text-sm font-semibold w-[260px] truncate text-left underline underline-offset-2"
           >
+            {{ item.label }}
+          </span>
+          <span v-else class="text-muted">
             {{ item.label }}
           </span>
         </template>
