@@ -2,7 +2,7 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import ThemeButton from "~~/components/buttons/ThemeButton.vue" ;
+import ThemeButton from "../buttons/ThemeButton.vue" ;
 
 const menuNames : {name:string; icon:string}[] =[{name:"Главная", icon:"i-lucide-house"}, {name:"Пользователи", icon:"i-lucide-users"} ];
 
