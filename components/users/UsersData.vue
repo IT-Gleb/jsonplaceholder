@@ -5,6 +5,7 @@ import { defineAsyncComponent, ref, watch, onMounted } from "vue";
 import { useState } from "nuxt/app";
 import { useMediaQuery } from "@vueuse/core";
 import type { BreadcrumbItem } from "@nuxt/ui";
+import UsersDataItem from "./UsersDataItem.vue";
 
 const AsyncUserDataValues = defineAsyncComponent(
   () => import("./UserDataValues.vue")
@@ -170,22 +171,12 @@ watch(
             v-if="item.data"
             v-for="key in Object.keys(item.data)"
             :key="key"
-            class="odd:bg-neutral-100 odd:dark:bg-slate-700"
+            class="odd:bg-neutral-200 odd:dark:bg-slate-600"
           >
-            <div
-              class="grid grid-cols-[100px_1fr] md:grid-cols-[200px_1fr] gap-4 items-start"
-            >
-              <div
-                class="pl-1 place-content-center font-bold truncate md:text-clip md:pl-2"
-              >
-                {{ item.data[key].label }}:
-              </div>
-              <div
-                class="pl-1 place-content-center overflow-hidden border-l border-l-neutral-300 md:pl-2"
-              >
-                {{ item.data[key].value }}
-              </div>
-            </div>
+            <UsersDataItem
+              :prop-key="item.data[key].label"
+              :prop-value="item.data[key].value"
+            />
           </div>
         </section>
       </template>

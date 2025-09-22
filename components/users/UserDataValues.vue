@@ -194,6 +194,16 @@ onMounted(async () => {
 });
 
 watch(
+  GlobalUserData,
+  () => {
+    nextTick(() => {
+      table.value?.tableApi.toggleAllPageRowsSelected(false);
+    });
+  }
+  // { deep: true }
+);
+
+watch(
   rowSelection,
   () => {
     nextTick(() => {
@@ -212,7 +222,9 @@ watch(
   <section>
     <div class="flex flex-row gap-3 items-center justify-between my-2">
       <h5 class="font-bold">{{ currUser.userdata.username }}</h5>
-      <div class="flex flex-row gap-3 px-2 py-1">
+      <div
+        class="flex flex-row gap-3 px-2 py-1 text-neutral-500 dark:text-neutral-300"
+      >
         <div>
           <span>Получено задач: </span>
           <span> {{ GlobalUserData.userdata.todos.length }}</span>
