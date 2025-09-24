@@ -5,6 +5,10 @@
 
 @source "../../../components";
 
+/* @theme {
+  --color-primary: #1e3a8a;
+} */
+
 @layer base {
   html {
     @apply h-[100%];
