@@ -5,7 +5,7 @@ import { defineAsyncComponent, ref, watch, onMounted } from "vue";
 import { useState } from "nuxt/app";
 import { useMediaQuery } from "@vueuse/core";
 import type { BreadcrumbItem } from "@nuxt/ui";
-import UsersDataItem from "./UsersDataItem.vue";
+import LazyUsersDataItem from "./UsersDataItem.vue";
 
 const AsyncUserDataValues = defineAsyncComponent(
   () => import("./UserDataValues.vue")
@@ -173,9 +173,10 @@ watch(
             :key="key"
             class="odd:bg-neutral-200 odd:dark:bg-slate-600"
           >
-            <UsersDataItem
+            <LazyUsersDataItem
               :prop-key="item.data[key].label"
               :prop-value="item.data[key].value"
+              hydrite-on-visible
             />
           </div>
         </section>
