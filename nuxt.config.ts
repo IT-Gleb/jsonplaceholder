@@ -31,7 +31,10 @@ export default defineNuxtConfig({
         lang: "ru-RU",
       },
       viewport: "width=device-width, initial-scale=1, maximum-scale=5",
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "manifest", href: "/mainifest.json" },
+      ],
     },
   },
 
