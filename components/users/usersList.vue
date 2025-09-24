@@ -109,7 +109,9 @@ watch(
       });
 
       //Выделить первый
-      user.value = usersGroup.value[0]?.items[0] as unknown as IUserData;
+      nextTick(() => {
+        user.value = usersGroup.value[0]?.items[0] as unknown as IUserData;
+      });
     }
   },
   { deep: true }
