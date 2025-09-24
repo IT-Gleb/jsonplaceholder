@@ -9,14 +9,14 @@ import MainHeader from "~~/components/layouts/MainHeader.vue";
       <main-header />
     </header>
     <main
-      class="w-full max-w-[350px] md:max-w-full lg:w-[80vw] lg:mx-auto xl:w-[70vw]"
+      class="w-full max-w-[350px] md:max-w-full lg:w-[75vw] lg:mx-auto xl:w-[70vw]"
     >
       <slot></slot>
     </main>
     <footer>
       <div class="p-2 text-center place-content-center">
         <span>&nbsp;</span>
-        <span> &copy; 2000-{{ getNowYear() }} </span>
+        <span> Gleb Torgashin &copy; 2000-{{ getNowYear() }} </span>
       </div>
     </footer>
   </div>

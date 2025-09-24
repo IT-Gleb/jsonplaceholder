@@ -18,7 +18,11 @@ const AsyncUsersList = defineAsyncComponent({
 
 const isMobile = useMediaQuery("(width < 768.5px)", { ssrWidth: 768 });
 const load = ref(null);
-//const load1 = ref(null);
+
+useHead({
+  title: "Пользователи::Users",
+  meta: [{ name: "author", content: "Gleb Torgashin" }],
+});
 </script>
 
 <template>
