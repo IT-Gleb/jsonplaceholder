@@ -13,8 +13,14 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@vueuse/nuxt",
   ],
+
+  builder: "vite",
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      minify: true,
+      chunkSizeWarningLimit: 350,
+    },
   },
 
   app: {
