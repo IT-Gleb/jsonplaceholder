@@ -1,19 +1,19 @@
 <script setup lang="ts">
 const messages: string[] = [
   "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend.",
+  "Vue js- отличный фреймворк для frontend разработки.",
   "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend.",
+  "Vue js- отличный фреймворк для frontend разработки.",
   "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend.",
+  "Vue js- отличный фреймворк для frontend разработки.",
   "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend.",
+  "Vue js- отличный фреймворк для frontend разработки.",
 ];
 </script>
 
 <template>
   <div
-    class="bg-yellow-200 dark:bg-slate-200 text-indigo-950 w-full overflow-hidden"
+    class="bg-neutral-100 dark:bg-neutral-700 text-indigo-950 dark:text-indigo-200 w-full overflow-hidden"
   >
     <div
       class="max-w-[3000px] flex flex-row gap-1 py-1 whitespace-nowrap lineAnimate font-mono"
@@ -31,7 +31,8 @@ const messages: string[] = [
 
 <style scoped>
 .lineAnimate {
-  animation: startLine 10s linear infinite, marquee 10s linear infinite;
+  animation: startLine 10s linear infinite alternate-reverse,
+    marquee 10s linear infinite;
 }
 
 @keyframes startLine {
