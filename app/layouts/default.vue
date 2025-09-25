@@ -8,9 +8,7 @@ import MainHeader from "~~/components/layouts/MainHeader.vue";
     <header class="sticky top-0 z-10">
       <main-header />
     </header>
-    <main
-      class="w-full max-w-[350px] md:max-w-full lg:w-[75vw] lg:mx-auto xl:w-[70vw]"
-    >
+    <main class="w-full max-w-full lg:w-[75vw] lg:mx-auto xl:w-[70vw]">
       <slot></slot>
     </main>
     <footer>
