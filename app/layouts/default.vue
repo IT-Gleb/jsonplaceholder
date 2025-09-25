@@ -4,11 +4,11 @@ import MainHeader from "~~/components/layouts/MainHeader.vue";
 </script>
 
 <template>
-  <div>
+  <div class="min-h-screen flex flex-col">
     <header class="sticky top-0 z-10">
       <main-header />
     </header>
-    <main class="w-full max-w-full lg:w-[75vw] lg:mx-auto xl:w-[70vw]">
+    <main class="lg:w-[75vw] lg:mx-auto xl:w-[70vw] flex-1">
       <slot></slot>
     </main>
     <footer>

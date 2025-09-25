@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { hydrateOnVisible } from "vue";
+
 //import MyMarquee from "../../components/Marquee/MyMarquee.vue";
 
 const AsyncMyMarquee = defineAsyncComponent({
   loader: () => import("../../components/Marquee/MyMarquee.vue"),
+  hydrate: hydrateOnVisible(),
 });
 
 useHead({
@@ -13,11 +16,13 @@ useHead({
 
 <template>
   <div>
-    <UContainer class="mt-5 h-full min-h-[79vh] flex flex-col justify-between">
+    <UContainer
+      class="mt-5 h-full xl:min-h-[79vh] flex flex-col xl:justify-between"
+    >
       <h2 class="text-xl lg:text-3xl font-semibold uppercase">
         Главная страница
       </h2>
-      <div class="flex-1">
+      <div class="flex-grow-1">
         <h4 class="my-5 uppercase font-bold">
           Используемые библиотеки, API и фреймворки:
         </h4>
@@ -47,6 +52,6 @@ useHead({
         </ol>
       </div>
     </UContainer>
-    <AsyncMyMarquee class="mt-auto" />
+    <AsyncMyMarquee />
   </div>
 </template>
