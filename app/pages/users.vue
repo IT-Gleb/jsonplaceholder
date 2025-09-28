@@ -16,6 +16,10 @@ const AsyncUsersList = defineAsyncComponent({
   hydrate: hydrateOnVisible(),
 });
 
+const AsyncMobileUsersList = defineAsyncComponent({
+  loader: () => import("../../components/users/MobileUsersList.vue"),
+});
+
 const isMobile = useMediaQuery("(width < 768.5px)", { ssrWidth: 768 });
 const load = ref(null);
 
@@ -31,8 +35,11 @@ useHead({
       <KeepAlive>
         <Suspense>
           <AsyncUsersList
-            class="h-full min-h-[44vh] w-full md:min-h-[35vh] md:w-[20vw]"
+            v-if="!isMobile"
+            class="h-full min-h-[40vh] w-full md:min-h-[35vh] md:w-[20vw]"
           />
+          <AsyncMobileUsersList v-else />
+
           <template #fallback>
             <UProgress
               v-model="load"
