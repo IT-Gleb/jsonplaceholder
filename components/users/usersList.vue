@@ -110,7 +110,9 @@ watch(
 
       //Выделить первый
       nextTick(() => {
-        user.value = usersGroup.value[0]?.items[0] as unknown as IUserData;
+        if (!user.value.userdata) {
+          user.value = usersGroup.value[0]?.items[0] as unknown as IUserData;
+        }
       });
     }
   },
@@ -123,7 +125,7 @@ watch(
     userId.value = user.value.userdata.id;
     usersDataClear();
     await usersDataRefresh();
-    await nextTick(() => {
+    nextTick(() => {
       GlobalUserData.value = usersData.value as TUserData;
     });
   },

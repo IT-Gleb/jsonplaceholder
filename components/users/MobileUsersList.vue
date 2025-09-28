@@ -12,7 +12,9 @@ const load = ref(null);
 const currUser = useState<IUserData>("currentUser");
 
 const buttonLabel = ref<string>(
-  currUser.value.userdata ? currUser.value.userdata.username : "Пользователи"
+  currUser.value.userdata
+    ? currUser.value.userdata.username + "_" + currUser.value.userdata.name
+    : "Пользователи"
 );
 const drawerOpen = ref<boolean>(false);
 
