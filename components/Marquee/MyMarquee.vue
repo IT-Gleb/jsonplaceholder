@@ -1,14 +1,8 @@
 <script setup lang="ts">
-const messages: string[] = [
-  "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend разработки.",
-  "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend разработки.",
-  "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend разработки.",
-  "Nuxt - замечательный фреймворк.",
-  "Vue js- отличный фреймворк для frontend разработки.",
-];
+const messages: string[] = Array.from(
+  { length: 20 },
+  (item) => " <<NUXT UI компоненты>> "
+);
 </script>
 
 <template>

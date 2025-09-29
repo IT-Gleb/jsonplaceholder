@@ -2,6 +2,7 @@
 import { useState } from "nuxt/app";
 import { ref, watch, defineAsyncComponent } from "vue";
 import type { IUserData } from "../../types/user";
+import { getNowYear } from "~~/utils/functions";
 
 const AsyncMobileUsersList = defineAsyncComponent({
   loader: () => import("./usersList.vue"),
@@ -46,7 +47,9 @@ watch(
       v-model:open="drawerOpen"
       :dismissible="false"
       :handle="false"
-      :ui="{ header: 'text-sm flex items-center justify-between min-w-[75vw]' }"
+      :ui="{
+        header: 'text-sm flex items-center justify-between min-w-[75vw]',
+      }"
     >
       <template #header>
         <h4 class="font-bold font-['Inter'] uppercase p-1">
@@ -86,6 +89,12 @@ watch(
             class="mx-auto"
           />
         </div>
+      </template>
+      <template #footer>
+        <USeparator color="neutral" />
+        <span class="mt-2 text-xs text-neutral whitespace-nowrap text-center"
+          >Gleb Torgashin &copy;2000-{{ getNowYear() }}</span
+        >
       </template>
     </UDrawer>
   </div>

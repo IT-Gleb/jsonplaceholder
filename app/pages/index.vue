@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { hydrateOnVisible } from "vue";
+import { hydrateOnVisible, ref } from "vue";
+
+const footerHeight = ref<number>(100);
 
 //import MyMarquee from "../../components/Marquee/MyMarquee.vue";
 
@@ -19,12 +21,29 @@ useHead({
     },
   ],
 });
+
+function CalculateHeight(): number {
+  const footer = document.querySelector("footer");
+  if (footer) {
+    return Math.round(
+      100 -
+        ((footer.offsetHeight + footer.clientHeight) * 100) / window.innerHeight
+    );
+  }
+
+  return 84;
+}
+
+onMounted(() => {
+  footerHeight.value = CalculateHeight();
+  // window.innerHeight - (footer.offsetHeight + footer.clientHeight + 8);
+
+  // console.log(window.innerHeight, footer.offsetHeight);
+});
 </script>
 
 <template>
-  <div
-    class="h-full min-h-[calc(100vh-145px)] lg:min-h-[calc(100vh-155px)] flex flex-col"
-  >
+  <div class="h-full flex flex-col" :style="{ height: `${footerHeight}vh` }">
     <UContainer class="flex-1">
       <h4 class="my-5 uppercase font-bold">
         Используемые библиотеки, API и фреймворки:
@@ -32,7 +51,7 @@ useHead({
       <p class="my-2">Pet-проект. Создан для изучения Nuxt UI компонентов.</p>
 
       <ol
-        class="list-decimal py-1 px-2 w-fit [&>li]:marker:font-bold [&>li]:marker:font-['Inter'] [&>li]:marker:text-xs [&>li]:place-content-center [&>li]:p-1 [&>li]:even:bg-neutral-100 [&>li]:even:dark:bg-neutral-800/60"
+        class="list-decimal text-xs sm:text-sm py-1 px-2 w-fit [&>li]:marker:font-bold [&>li]:marker:font-['Inter'] [&>li]:marker:text-xs [&>li]:place-content-center [&>li]:p-1 [&>li]:even:bg-neutral-100 [&>li]:even:dark:bg-neutral-800/60"
       >
         <li>Nuxt 4.1.2</li>
         <li>Vue 3.5.21</li>
@@ -56,6 +75,8 @@ useHead({
         </li>
       </ol>
     </UContainer>
-    <AsyncMyMarquee class="flex-0" />
+    <AsyncMyMarquee />
   </div>
 </template>
+
+<!-- min-h-[calc(100vh-145px)] lg:min-h-[calc(100vh-155px)] -->
