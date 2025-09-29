@@ -15,12 +15,14 @@ useHead({
 </script>
 
 <template>
-  <div class="h-full min-h-[80vh] flex flex-col">
-    <UContainer class="flex-grow-1">
+  <div
+    class="h-full min-h-[calc(100vh-145px)] lg:min-h-[calc(100vh-155px)] flex flex-col"
+  >
+    <UContainer class="flex-1">
       <h4 class="my-5 uppercase font-bold">
         Используемые библиотеки, API и фреймворки:
       </h4>
-      <p>Pet-проект. Создан для применения Nuxt UI компонентов.</p>
+      <p class="my-2">Pet-проект. Создан для изучения Nuxt UI компонентов.</p>
 
       <ol
         class="list-decimal py-1 px-2 w-fit [&>li]:marker:font-bold [&>li]:marker:font-['Inter'] [&>li]:marker:text-xs [&>li]:place-content-center [&>li]:p-1 [&>li]:even:bg-neutral-100 [&>li]:even:dark:bg-neutral-800/60"
@@ -47,6 +49,6 @@ useHead({
         </li>
       </ol>
     </UContainer>
-    <AsyncMyMarquee class="mt-[10%] flex-0 place-self-end" />
+    <AsyncMyMarquee class="flex-0" />
   </div>
 </template>
