@@ -14,7 +14,7 @@ const currUser = useState<IUserData>("currentUser");
 const buttonLabel = ref<string>(
   currUser.value.userdata
     ? currUser.value.userdata.username + "_" + currUser.value.userdata.name
-    : "Пользователи"
+    : "Выбрать пользователя"
 );
 const drawerOpen = ref<boolean>(false);
 
