@@ -10,7 +10,14 @@ const AsyncMyMarquee = defineAsyncComponent({
 
 useHead({
   title: "Главная",
-  meta: [{ name: "author", content: "Gleb Torgashin" }],
+  meta: [
+    { name: "author", content: "Gleb Torgashin" },
+    {
+      name: "description",
+      content:
+        "Приложение для тестирования Nuxt UI компонентов. Использует: Nuxt 4.1.2, Vue 3.5.21",
+    },
+  ],
 });
 </script>
 
