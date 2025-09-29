@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useState } from "nuxt/app";
-import { ref } from "vue";
+import { ref, watch, defineAsyncComponent } from "vue";
 import type { IUserData } from "../../types/user";
 
 const AsyncMobileUsersList = defineAsyncComponent({
